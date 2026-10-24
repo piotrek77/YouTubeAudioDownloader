@@ -31,6 +31,12 @@ dotnet run
 
 Pliki wynikowe (plik wykonywalny `.exe` wraz z wymaganymi bibliotekami `.dll`) trafiają do katalogu `bin\Release\net10.0-windows\`.
 
+Aby wygenerować pojedynczy plik instalatora `YouTubeAudioDownloader_Setup.exe` (tworzący skrót na Pulpicie i w Menu Start):
+
+```powershell
+.\build-installer.ps1
+```
+
 ## Wykorzystane biblioteki
 
 - [YoutubeExplode](https://github.com/Tyrrrz/YoutubeExplode) – pobieranie strumieni z YouTube
