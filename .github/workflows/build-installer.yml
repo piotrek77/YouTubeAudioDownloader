@@ -26,10 +26,11 @@ jobs:
       - name: Publish YouTubeAudioDownloader_Setup.exe to GitHub Releases
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: latest
-          name: YouTube Audio Downloader (MP3) - Instalator
+          tag_name: v1.0.${{ github.run_number }}
+          name: YouTube Audio Downloader v1.0.${{ github.run_number }}
           body: |
-            Pobierz i uruchom **`YouTubeAudioDownloader_Setup.exe`** poniżej.
+            Pobierz i uruchom **`YouTubeAudioDownloader_Setup.exe`** poniżej (bez konieczności rozpakowywania archiwum ZIP).
           files: YouTubeAudioDownloader_Setup.exe
           prerelease: false
           make_latest: true
+          generate_release_notes: true
