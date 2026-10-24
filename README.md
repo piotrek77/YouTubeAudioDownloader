@@ -31,11 +31,18 @@ dotnet run
 
 Pliki wynikowe (plik wykonywalny `.exe` wraz z wymaganymi bibliotekami `.dll`) trafiają do katalogu `bin\Release\net10.0-windows\`.
 
-Aby wygenerować pojedynczy plik instalatora `YouTubeAudioDownloader_Setup.exe` (tworzący skrót na Pulpicie i w Menu Start):
+### Tworzenie instalatora (`YouTubeAudioDownloader_Setup.exe`)
+
+W repozytorium znajduje się skrypt PowerShell `build-installer.ps1`, który buduje projekt w konfiguracji `Release` i pakuje wszystkie pliki do pojedynczego instalatora `YouTubeAudioDownloader_Setup.exe`:
 
 ```powershell
 .\build-installer.ps1
 ```
+
+Wygenerowany plik `YouTubeAudioDownloader_Setup.exe`:
+- wypakowuje aplikację do katalogu `%LocalAppData%\Programs\YouTubeAudioDownloader` (nie wymaga uprawnień administratora),
+- tworzy skrót **YouTube Audio Downloader** na Pulpicie oraz w Menu Start,
+- do uruchomienia samej aplikacji na komputerze docelowym wymagane jest środowisko **.NET 10.0 Desktop Runtime** (w razie jego braku system Windows automatycznie zaproponuje jego pobranie przy pierwszym starcie programu).
 
 ## Wykorzystane biblioteki
 
