@@ -44,6 +44,13 @@ Wygenerowany plik `YouTubeAudioDownloader_Setup.exe`:
 - tworzy skrót **YouTube Audio Downloader** na Pulpicie oraz w Menu Start,
 - do uruchomienia samej aplikacji na komputerze docelowym wymagane jest środowisko **.NET 10.0 Desktop Runtime** (w razie jego braku system Windows automatycznie zaproponuje jego pobranie przy pierwszym starcie programu).
 
+### Automatyczne budowanie na GitHubie (GitHub Actions)
+
+Repozytorium posiada skonfigurowany workflow [`.github/workflows/build-installer.yml`](.github/workflows/build-installer.yml):
+- uruchamia się automatycznie przy każdym `git push` na gałąź `main` oraz ręcznie przyciskiem **Run workflow** w zakładce **Actions** na GitHubie,
+- po zakończeniu budowania gotowy instalator `YouTubeAudioDownloader_Setup` jest dostępny do pobrania w sekcji **Artifacts** danego przebiegu,
+- po wypchnięciu tagu wersji (np. `v1.0.0`) instalator `YouTubeAudioDownloader_Setup.exe` jest automatycznie publikowany w zakładce **Releases** na GitHubie.
+
 ## Wykorzystane biblioteki
 
 - [YoutubeExplode](https://github.com/Tyrrrz/YoutubeExplode) – pobieranie strumieni z YouTube

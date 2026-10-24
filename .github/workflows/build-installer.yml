@@ -1,0 +1,41 @@
+name: Build Installer (Setup.exe)
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*' ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-installer:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Build YouTubeAudioDownloader_Setup.exe
+        shell: pwsh
+        run: .\build-installer.ps1
+
+      - name: Upload Installer Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: YouTubeAudioDownloader_Setup
+          path: YouTubeAudioDownloader_Setup.exe
+          if-no-files-found: error
+
+      - name: Publish to GitHub Releases (on tag v*)
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: YouTubeAudioDownloader_Setup.exe
+          generate_release_notes: true
