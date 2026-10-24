@@ -23,9 +23,13 @@ jobs:
         shell: pwsh
         run: .\build-installer.ps1
 
-      - name: Upload Installer Artifact
-        uses: actions/upload-artifact@v4
+      - name: Publish YouTubeAudioDownloader_Setup.exe to GitHub Releases
+        uses: softprops/action-gh-release@v2
         with:
-          name: YouTubeAudioDownloader_Setup
-          path: YouTubeAudioDownloader_Setup.exe
-          if-no-files-found: error
+          tag_name: latest
+          name: YouTube Audio Downloader (MP3) - Instalator
+          body: |
+            Pobierz i uruchom **`YouTubeAudioDownloader_Setup.exe`** poniżej (bez konieczności rozpakowywania archiwum ZIP).
+          files: YouTubeAudioDownloader_Setup.exe
+          prerelease: false
+          make_latest: true
