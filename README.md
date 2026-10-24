@@ -48,7 +48,7 @@ Wygenerowany plik `YouTubeAudioDownloader_Setup.exe`:
 
 Repozytorium posiada skonfigurowany workflow [`.github/workflows/build-installer.yml`](.github/workflows/build-installer.yml):
 - uruchamia się ręcznie przyciskiem **Run workflow** w zakładce **Actions** -> **Build Installer (Setup.exe)** na GitHubie,
-- po zakończeniu budowania gotowy plik **`YouTubeAudioDownloader_Setup.exe`** (bez pakowania w `.zip`) trafia automatycznie do sekcji **Releases** na głównej stronie repozytorium.
+- każde uruchomienie tworzy automatycznie nowe wydanie (`v1.0.<numer_builda>`) w sekcji **Releases** na głównej stronie repozytorium i dołącza do niego gotowy plik **`YouTubeAudioDownloader_Setup.exe`** (bez pakowania w `.zip`).
 
 ## Wykorzystane biblioteki
 
